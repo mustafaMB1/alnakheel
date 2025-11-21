@@ -1,0 +1,21 @@
+{
+  "register": "Register",
+  "username": "Username",
+  "enterUsername": "Enter your username",
+  "email": "Email",
+  "enterEmail": "Enter your email",
+  "password": "Password",
+  "enterPassword": "Enter your password",
+  "role": "Role",
+  "selectRole": "Select a role",
+  "customer": "Customer",
+  "admin": "Admin",
+  "submit": "Register",
+  "submitting": "Registering...",
+  "errors": {
+    "nameMin": "Username must be at least 3 characters",
+    "invalidEmail": "Invalid email address",
+    "passwordMin": "Password must be at least 6 characters",
+    "roleRequired": "Please select a role"
+  }
+}

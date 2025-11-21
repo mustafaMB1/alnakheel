@@ -1,0 +1,15 @@
+{
+    "navbar": {
+      "home": "الرئيسية",
+      "about": "حول الشركة",
+      "login": "تسجيل الدخول",
+      "products" : "المنتجات",
+      "shop" : "تسوق",
+      "shop-by-prand" : "تسوق عن طريق البراند",
+      "contact-us" : "تواصل معنا",
+      "control" : "لوحة التحكم"
+    },
+    "search-placeholder" : "ابحث عن منتجك",
+    "switch_lang": "English"
+  }
+  

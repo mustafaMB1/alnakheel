@@ -1,0 +1,15 @@
+{
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "login": "Login",
+      "products" : "Products",
+      "shop" : "Shop",
+      "shop-by-prand" : "Shop by brand",
+      "contact-us" : "Contact Us",
+      "control" : "control panel"
+    },
+    "search-placeholder" : "search for your product",
+    "switch_lang": "العربية"
+  }
+  

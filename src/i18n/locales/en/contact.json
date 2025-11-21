@@ -1,0 +1,26 @@
+{
+    "contact": {
+      "title": "Contact Us",
+      "address": "Dubai, Sharjah",
+      "methods": {
+        "title": "Contact Methods",
+        "phone": "+971 55 784 7654",
+        "email": "Alnakheelkitchenequ@gmail.com"
+      },
+      "social": {
+        "facebook": "Facebook",
+        "twitter": "Twitter",
+        "instagram": "Instagram",
+        "linkedin": "LinkedIn"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "monFri": "Morning: 9:00 AM - 2:00 PM",
+        "sat": "Evening: 4:00 PM - 9:00 PM",
+        "sun": "Friday: Closed"
+      }
+    }
+  }
+  
+
+  

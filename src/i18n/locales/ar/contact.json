@@ -1,0 +1,24 @@
+{
+    "contact": {
+      "title": "تواصل معنا",
+      "address": "دبي، الشارقة",
+      "methods": {
+        "title": "طرق التواصل",
+        "phone": "+971 55 784 7654",
+        "email": "Alnakheelkitchenequ@gmail.com"
+      },
+      "social": {
+        "facebook": "فيسبوك",
+        "twitter": "تويتر",
+        "instagram": "إنستغرام",
+        "linkedin": "لينكدإن"
+      },
+      "hours": {
+        "title": "ساعات العمل",
+        "monFri": "الصباحي: 9:00 ص - 2:00 م",
+        "sat": "المسائي: 4:00 م - 9:00 م",
+        "sun": "الجمعة: مغلق"
+      }
+    }
+  }
+  

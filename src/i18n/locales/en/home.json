@@ -1,0 +1,36 @@
+{
+    "Cooking-Line": "Cooking Line",
+    "Cookers-Ovens-Fryers": "Cookers, Ovens, Fryers..",
+    "Shop-Now" : "Shop Now",
+    "Cold-Line" : "Cold Line",
+    "Bakery-Equipment" : "Bakery Equipment",
+    "Snacks-Equipment" : "Snacks Equipment",
+    "Our-Advantages" : "Our Advantages",
+    "Free-insallation" : "Free Insallation",
+    "Free-Delivery" : "Free Delivery",
+    "Best-Prices" : "Best Prices",
+    "Kitchen-Design-Services" : "Kitchen Design Services",
+    "After-Sales-Services" : "After Sales Services",
+    "Express-Deleviry" : "Express Deleviry",
+    "Great-Warranty" : "Great Warranty",
+    "Customer-Service" : "Customer Service",
+    "Popular-Categories" : "Popular Categories",
+    "cooking equipment" : "cooking equipment",
+    "refrigeration equipment" : "refrigeration equipment",
+    "bakery equipment" : "bakery equipment",
+    "Coffee and tea machines" : "Coffee and tea machines",
+    "juice making machines" : "juice making machines",
+    "Food processors" : "Food processors",
+    "Food heating appliances" : "Food heating appliances",
+    "snack equipment" : "snack equipment",
+    "Dishwashers" : "Dishwashers",
+    "contact": {
+      "emailTitle": "Contact us via Email",
+      "emailDesc": "You can reach us at the following email, and we will reply as soon as possible.",
+      "whatsappTitle": "Didn't find what you are looking for?",
+      "whatsappDesc": "We can help you find exactly what you need.",
+      "whatsappBtn": "Contact via WhatsApp",
+      "whatsappMessage": "Hello, I would like to inquire about your services."
+    }
+  }
+    

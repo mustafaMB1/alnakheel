@@ -1,0 +1,12 @@
+{
+    "login": "Login",
+    "username": "Username",
+    "password": "Password",
+    "enterUsername": "Enter your username",
+    "enterPassword": "Enter your password",
+    "submitting": "Logging in...",
+    "submit": "Login",
+    "success": "Logged in successfully!",
+    "error": "Login failed"
+  }
+  

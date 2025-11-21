@@ -1,0 +1,12 @@
+{
+    "linksTitle": "Links",
+    "socialTitle": "Follow Us",
+    "rights": "© {{year}} Alnakheel. All rights reserved.",
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "products": "Products",
+      "contact": "Contact Us"
+    }
+  }
+  

@@ -1,0 +1,308 @@
+@import "tailwindcss";
+/* styles.css */
+:root {
+    --main-color: #c10007;
+    --secondary-color : oklch(0.43 0.16 27.35);
+  }
+  @keyframes fadeUpT {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeUp-title {
+    animation: fadeUpT 0.8s ease-out forwards;
+  }
+  
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+
+  .contact-card {
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    transition: box-shadow 0.5s;
+    opacity: 0;  
+    transform: translateY(50px); 
+  }
+  
+  .contact-card:hover {
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+  }
+  
+  /* Animation عند ظهور العنصر */
+  .animate-fade-up {
+    animation: fade 0.8s forwards;
+  }
+  
+  .animate-fade-up.delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  @keyframes fade {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* تأثير bounce على الأيقونات عند hover */
+  .contact-card svg {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .contact-card svg:hover {
+    animation: bounce 0.6s;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-15px);
+    }
+    60% {
+      transform: translateY(-7px);
+    }
+  }
+  
+
+  /* Pulse container للزر الأساسي */
+.pulse-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ثلاث طبقات موجات */
+.pulse-button::before,
+.pulse-button::after,
+.pulse-button .pulse-layer {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1; /* خلف الزر */
+}
+
+/* الطبقة الأولى */
+.pulse-button::before {
+  width: 110%;
+  height: 110%;
+  border: 3px solid rgba(173, 9, 9, 0.25); /* غامق وشفاف */
+  animation: pulse1 1.5s infinite;
+}
+
+/* الطبقة الثانية */
+.pulse-button::after {
+  width: 130%;
+  height: 130%;
+  border: 3px solid rgba(173, 9, 9, 0.25);
+  animation: pulse2 2s infinite;
+}
+
+/* الطبقة الثالثة باستخدام عنصر إضافي داخل الزر */
+.pulse-button .pulse-layer {
+  width: 180%;
+  height: 180%;
+  border: 3px solid rgba(173, 9, 9, 0.25);
+  animation: pulse3 2.5s infinite;
+}
+
+/* Animation للطبقة الأولى */
+@keyframes pulse1 {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 0.2; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Animation للطبقة الثانية */
+@keyframes pulse2 {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.4); opacity: 0.15; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Animation للطبقة الثالثة */
+@keyframes pulse3 {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.4); opacity: 0.1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* أي تأثير hover بسيط على الأيقونات الداخلية */
+.contact-icon {
+  transition: transform 0.3s ease-in-out;
+}
+.contact-icon:hover {
+  transform: scale(1.2);
+}
+
+
+/* fade-up animation للصفحة */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+}
+.fade-up.delay-100 { animation-delay: 0.1s; }
+.fade-up.delay-200 { animation-delay: 0.2s; }
+.fade-up.delay-300 { animation-delay: 0.3s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تحسين صورة المنتج */
+.product-image {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.product-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+}
+
+/* أيقونة العين */
+.eye-button {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.eye-button:hover {
+  transform: scale(1.2);
+  opacity: 1 !important;
+}
+
+/* كروت المنتجات ذات الصلة */
+.related-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.related-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+/* زر WhatsApp */
+.whatsapp-btn {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+  background-color: #28a745cc; /* أخضر حيوي عند hover */
+}
+
+/* Modal الصورة */
+.modal-preview {
+  background-color: rgba(0,0,0,0.8);
+}
+.modal-preview img {
+  transition: transform 0.3s ease;
+}
+
+/* Carousel container */
+.carousel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.carousel img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.carousel img.selected {
+  border: 2px solid var(--main-color);
+}
+
+
+
+/* Animations */
+
+/* fade-up */
+@keyframes csFadeUp {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.cs-animate-fadeup {
+  animation: csFadeUp 0.8s forwards;
+}
+
+/* floating effect للصورة الرئيسية */
+@keyframes csFloat {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-10px);}
+}
+.cs-float-animation {
+  animation: csFloat 4s ease-in-out infinite;
+}
+
+/* bounce effect للكروت */
+@keyframes csBounceIn {
+  0% { transform: scale(0.9);}
+  50% { transform: scale(1.05);}
+  100% { transform: scale(1);}
+}
+.cs-bounce-hover:hover {
+  animation: csBounceIn 0.5s forwards;
+}
+
+/* shake effect للأزرار */
+@keyframes csShake {
+  0% { transform: translateX(0);}
+  25% { transform: translateX(-2px);}
+  50% { transform: translateX(2px);}
+  75% { transform: translateX(-2px);}
+  100% { transform: translateX(0);}
+}
+.cs-btn-hover:hover {
+  animation: csShake 0.4s;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .cs-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .cs-group-hover-scale:hover {
+    transform: scale(1.03) !important;
+  }
+  .cs-float-animation {
+    animation: csFloat 3s ease-in-out infinite;
+  }
+}

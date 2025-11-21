@@ -1,0 +1,2338 @@
+{
+	"info": {
+		"_postman_id": "24ffa4db-4e17-48bb-9d92-2f0178926400",
+		"name": "AlNakheel API",
+		"description": "AlNakheel Ecommerce backend API with JWT + RBAC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5259982"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"item": [
+						{
+							"name": "Register new user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"name\": \"string\",\n  \"role\": \"ADMIN\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "User registered",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"name\": \"string\",\n  \"role\": \"ADMIN\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Register new user",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"name\": \"string\",\n  \"role\": \"ADMIN\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Email already in use",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"user@local.com\",\n  \"password\": \"string\",\n  \"name\": \"string\",\n  \"role\": \"ADMIN\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADMIN by default",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"usertest@local.com\",\n  \"password\": \"123456\",\n  \"name\": \"test\"//optional\n  //\"role\": \"ADMIN\" -- when no role provided --> will be ADMIN by default\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "email must be an email",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"usertest\",\n  \"password\": \"123456\",\n  \"name\": \"test\"//optional\n  //\"role\": \"ADMIN\" -- when no role provided --> will be ADMIN by default\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "Login user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "User logged in",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Login user -admi success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin@local.com\",\n    \"password\": \"admin123\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\n    \"user\": {\n        \"id\": 1,\n        \"email\": \"admin@local.com\",\n        \"name\": \"Admin\",\n        \"role\": \"ADMIN\",\n        \"createdAt\": \"2025-08-20T08:53:39.843Z\",\n        \"updatedAt\": \"2025-08-20T08:53:39.843Z\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AbG9jYWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NzczMjMzLCJleHAiOjE3NTU3NzY4MzN9.-Rht8Z7_zu19Ty_xuuF_siMeK7WM2N6Kryav5HCH3m8\"\n}"
+								},
+								{
+									"name": "Login user - customer success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"user@local.com\",\n    \"password\": \"customer123\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"id\": 2,\n        \"email\": \"user@local.com\",\n        \"name\": \"Customer\",\n        \"role\": \"CUSTOMER\",\n        \"createdAt\": \"2025-08-20T08:53:40.453Z\",\n        \"updatedAt\": \"2025-08-20T08:53:40.453Z\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoidXNlckBsb2NhbC5jb20iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3NTU3NzM0MTIsImV4cCI6MTc1NTc3NzAxMn0.Wq2CfCzNqYneTQljWGSyQ1yGP-3Qj9mHhM0pdtU09t0\"\n}"
+								},
+								{
+									"name": "Login user - failure",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"test@user.com\",\n    \"password\": \"123456\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"error\": \"Unauthorized\",\n    \"message\": \"Invalid credentials\",\n    \"timestamp\": \"2025-08-21T10:51:14.195Z\",\n    \"path\": \"/auth/login\"\n}"
+								},
+								{
+									"name": "Login user - bad request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"test\",\n    \"password\": \"123456\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [
+										{
+											"expires": "Invalid Date",
+											"domain": "",
+											"path": ""
+										}
+									],
+									"body": "{\n    \"statusCode\": 400,\n    \"error\": \"Bad Request\",\n    \"message\": [\n        \"email must be an email\"\n    ],\n    \"timestamp\": \"2025-08-21T10:52:20.457Z\",\n    \"path\": \"/auth/login\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "me",
+					"item": [
+						{
+							"name": "Get current user profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/me",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Get all users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "filter",
+					"item": [
+						{
+							"name": "Advanced product filtering with pagination and sorting",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/products/filter?skip=1924.3512891381042&take=1924.3512891381042&sortField=string&sortOrder=asc&price__gte=1924.3512891381042&price__lte=1924.3512891381042&categoryId__in=string&brandId__eq=1924.3512891381042&search=string",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"filter"
+									],
+									"query": [
+										{
+											"key": "skip",
+											"value": "1924.3512891381042",
+											"description": "Number of records to skip"
+										},
+										{
+											"key": "take",
+											"value": "1924.3512891381042",
+											"description": "Number of records to take"
+										},
+										{
+											"key": "sortField",
+											"value": "string",
+											"description": "Field name to sort by"
+										},
+										{
+											"key": "sortOrder",
+											"value": "asc",
+											"description": "Sort direction"
+										},
+										{
+											"key": "price__gte",
+											"value": "1924.3512891381042",
+											"description": "Minimum price"
+										},
+										{
+											"key": "price__lte",
+											"value": "1924.3512891381042",
+											"description": "Maximum price"
+										},
+										{
+											"key": "categoryId__in",
+											"value": "string",
+											"description": "Comma-separated category IDs"
+										},
+										{
+											"key": "brandId__eq",
+											"value": "1924.3512891381042",
+											"description": "Filter by brand ID"
+										},
+										{
+											"key": "search",
+											"value": "string",
+											"description": "Search using keyword"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/products/filter?skip=1924.3512891381042&take=1924.3512891381042&sortField=string&sortOrder=asc&price__gte=1924.3512891381042&price__lte=1924.3512891381042&categoryId__in=string&brandId__eq=1924.3512891381042&search=string",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"filter"
+											],
+											"query": [
+												{
+													"key": "skip",
+													"value": "1924.3512891381042",
+													"description": "Number of records to skip"
+												},
+												{
+													"key": "take",
+													"value": "1924.3512891381042",
+													"description": "Number of records to take"
+												},
+												{
+													"key": "sortField",
+													"value": "string",
+													"description": "Field name to sort by"
+												},
+												{
+													"key": "sortOrder",
+													"value": "asc",
+													"description": "Sort direction"
+												},
+												{
+													"key": "price__gte",
+													"value": "1924.3512891381042",
+													"description": "Minimum price"
+												},
+												{
+													"key": "price__lte",
+													"value": "1924.3512891381042",
+													"description": "Maximum price"
+												},
+												{
+													"key": "categoryId__in",
+													"value": "string",
+													"description": "Comma-separated category IDs"
+												},
+												{
+													"key": "brandId__eq",
+													"value": "1924.3512891381042",
+													"description": "Filter by brand ID"
+												},
+												{
+													"key": "search",
+													"value": "string",
+													"description": "Search using keyword"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name_en\": \"string\",\n    \"name_ar\": \"string\",\n    \"price\": 3087.43019146458,\n    \"id\": 7034.783459845628,\n    \"relatedProducts\": [\n      {\n        \"name_en\": \"string\",\n        \"name_ar\": \"string\",\n        \"price\": 9300.140539600794,\n        \"id\": 2980.190375545941,\n        \"description_en\": \"string\",\n        \"description_ar\": \"string\",\n        \"image\": \"string\",\n        \"categoryId\": 619.7248209844175,\n        \"brandId\": 1032.2302511488647\n      },\n      {\n        \"name_en\": \"string\",\n        \"name_ar\": \"string\",\n        \"price\": 4629.650753289027,\n        \"id\": 8283.149650486945,\n        \"description_en\": \"stri\",\n        \"description_ar\": \"string\",\n        \"image\": \"string\",\n        \"categoryId\": 1473.9955872112942,\n        \"brandId\": 9086.160724336563\n      }\n    ],\n    \"bulkOperations\": {\n      \"addBulk\": \"POST /products/related/bulk\",\n      \"removeBulk\": \"DELETE /products/related/bulk\"\n    },\n    \"description_en\": \"string\",\n    \"description_ar\": \"string\",\n    \"image\": \"string\",\n    \"categoryId\": 2814.451596902996,\n    \"brandId\": 9541.579344565716\n  },\n  {\n    \"name_en\": \"string\",\n    \"name_ar\": \"string\",\n    \"price\": 2220.0063415429304,\n    \"id\": 1942.1214169163336,\n    \"relatedProducts\": [\n      {\n        \"name_en\": \"string\",\n        \"name_ar\": \"string\",\n        \"price\": 4909.564914778117,\n        \"id\": 1100.938049221274,\n        \"description_en\": \"string\",\n        \"description_ar\": \"string\",\n        \"image\": \"string\",\n        \"categoryId\": 9298.402253018667,\n        \"brandId\": 6995.01266657903\n      },\n      {\n        \"name_en\": \"string\",\n        \"name_ar\": \"string\",\n        \"price\": 2828.32129375709,\n        \"id\": 4594.669659684374,\n        \"description_en\": \"string\",\n        \"description_ar\": \"string\",\n        \"image\": \"string\",\n        \"categoryId\": 9248.070287388076,\n        \"brandId\": 6314.505654619018\n      }\n    ],\n    \"bulkOperations\": {\n      \"addBulk\": \"POST /products/related/bulk\",\n      \"removeBulk\": \"DELETE /products/related/bulk\"\n    },\n    \"description_en\": \"string\",\n    \"description_ar\": \"string\",\n    \"image\": \"string\",\n    \"categoryId\": 4393.876997398882,\n    \"brandId\": 5318.101547903833\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "related",
+							"item": [
+								{
+									"name": "Get all related products of a product",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/products/:id/related",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":id",
+												"related"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1924.3512891381042",
+													"description": "(Required) Product ID"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Product with its related products",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/products/:id/related",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"products",
+														":id",
+														"related"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name_en\": \"string\",\n  \"name_ar\": \"string\",\n  \"price\": 7245.0021466428425,\n  \"id\": 3835.968929108353,\n  \"relatedProducts\": [\n    {\n      \"name_en\": \"string\",\n      \"name_ar\": \"\",\n      \"price\": 9587.66717714341,\n      \"id\": 4611.518392593501,\n      \"description_en\": \"string\",\n      \"description_ar\": \"string\",\n      \"image\": \"string\",\n      \"categoryId\": 9132.01546553999,\n      \"brandId\": 1134.8669010873457\n    },\n    {\n      \"name_en\": \"string\",\n      \"name_ar\": \"string\",\n      \"price\": 4078.541239367748,\n      \"id\": 1994.3608537002922,\n      \"description_en\": \"string\",\n      \"description_ar\": \"string\",\n      \"image\": \"string\",\n      \"categoryId\": 7040.0367285495795,\n      \"brandId\": 1718.5564833157096\n    }\n  ],\n  \"bulkOperations\": {\n    \"addBulk\": \"POST /products/related/bulk\",\n    \"removeBulk\": \"DELETE /products/related/bulk\"\n  },\n  \"description_en\": \"string\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\",\n  \"categoryId\": 7415.068514039749,\n  \"brandId\": 4514.49804132378\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get product by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1924.3512891381042",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update product (Admin)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1924.3512891381042",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/products/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete product (Admin)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1924.3512891381042",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/products/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "related",
+					"item": [
+						{
+							"name": "bulk",
+							"item": [
+								{
+									"name": "Add multiple related products at once",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": 8058.194160021981,\n  \"relatedIds\": [\n    5247.853845670589,\n    4799.120941342771\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/related/bulk",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"related",
+												"bulk"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Related products added successfully.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 8058.194160021981,\n  \"relatedIds\": [\n    5247.853845670589,\n    4799.120941342771\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/products/related/bulk",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"products",
+														"related",
+														"bulk"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Validation failed or product not found.",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 8058.194160021981,\n  \"relatedIds\": [\n    5247.853845670589,\n    4799.120941342771\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/products/related/bulk",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"products",
+														"related",
+														"bulk"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Remove multiple related products at once",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": 7983.825939112572,\n  \"relatedIds\": [\n    1698.483518824385,\n    9408.507689124983\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/related/bulk",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"related",
+												"bulk"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Related products removed successfully.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 7983.825939112572,\n  \"relatedIds\": [\n    1698.483518824385,\n    9408.507689124983\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/products/related/bulk",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"products",
+														"related",
+														"bulk"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Validation failed or product not found.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 7983.825939112572,\n  \"relatedIds\": [\n    1698.483518824385,\n    9408.507689124983\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/products/related/bulk",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"products",
+														"related",
+														"bulk"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create product (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name_en\": \"string\",\n  \"name_ar\": \"string\",\n  \"price\": 7191.555920840256,\n  \"description_en\": \"stri\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\",\n  \"categoryId\": 4676.181681425353,\n  \"brandId\": 2778.586487338459\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name_en\": \"string\",\n  \"name_ar\": \"string\",\n  \"price\": 7191.555920840256,\n  \"description_en\": \"stri\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\",\n  \"categoryId\": 4676.181681425353,\n  \"brandId\": 2778.586487338459\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get category by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1924.3512891381042",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update category (Admin)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name_en\": \"string\",\n  \"name_ar\": \"string\",\n  \"description_en\": \"string\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\",\n  \"parentId\": 4320.731851469665\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1924.3512891381042",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name_en\": \"string\",\n  \"name_ar\": \"string\",\n  \"description_en\": \"string\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\",\n  \"parentId\": 4320.731851469665\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete category (Admin)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1924.3512891381042",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "List categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create category (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name_en\": \"stri\",\n  \"name_ar\": \"string\",\n  \"description_en\": \"string\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\",\n  \"parentId\": 3384.8812209178545\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name_en\": \"stri\",\n  \"name_ar\": \"string\",\n  \"description_en\": \"string\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\",\n  \"parentId\": 3384.8812209178545\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "RelatedProducts",
+			"item": [
+				{
+					"name": "related",
+					"item": [
+						{
+							"name": "Add a related product to a product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"productId\": 5423.547446365773,\n  \"relatedId\": 8384.9498362925\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/RelatedProducts/related",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"RelatedProducts",
+										"related"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Related product added successfully.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": 5423.547446365773,\n  \"relatedId\": 8384.9498362925\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/RelatedProducts/related",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"RelatedProducts",
+												"related"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Remove a related product from a product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"productId\": 6654.397142314947,\n  \"relatedId\": 2722.9740941438686\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/RelatedProducts/related",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"RelatedProducts",
+										"related"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Related product removed successfully.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": 6654.397142314947,\n  \"relatedId\": 2722.9740941438686\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/RelatedProducts/related",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"RelatedProducts",
+												"related"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "related",
+							"item": [
+								{
+									"name": "Get all related products of a product",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/RelatedProducts/:id/related",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"RelatedProducts",
+												":id",
+												"related"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1924.3512891381042",
+													"description": "(Required) Product ID"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "List of related products.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/RelatedProducts/:id/related",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"RelatedProducts",
+														":id",
+														"related"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "brands",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get brand by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/brands/7",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"brands",
+										"7"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/brands/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"brands",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update a brand",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AbG9jYWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NzczMjMzLCJleHAiOjE3NTU3NzY4MzN9.-Rht8Z7_zu19Ty_xuuF_siMeK7WM2N6Kryav5HCH3m8",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name_en\": \"update english name\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/brands/7",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"brands",
+										"7"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name_en\": \"string\",\n  \"name_ar\": \"string\",\n  \"description_en\": \"string\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/brands/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"brands",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a brand",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/brands/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"brands",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1924.3512891381042",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/brands/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"brands",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create a brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AbG9jYWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NzczMjMzLCJleHAiOjE3NTU3NzY4MzN9.-Rht8Z7_zu19Ty_xuuF_siMeK7WM2N6Kryav5HCH3m8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name_en\": \"test brand\",\n  \"name_ar\": \"تجريبية\",\n  \"description_en\": \"This brand for testing\",\n  \"description_ar\": \"هذه البراند تجريبية\",\n  \"image\": \"data:image/jpg;base64,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\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/brands",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name_en\": \"string\",\n  \"name_ar\": \"string\",\n  \"description_en\": \"string\",\n  \"description_ar\": \"string\",\n  \"image\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/brands",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"brands"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "List all brands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/brands",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/brands",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"brands"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AbG9jYWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1Nzg5NjcxLCJleHAiOjE3NTU3OTMyNzF9.bpTIIgXRJlBrlJtXaeLQTd8jTvrVpxjBaiRdeZsY7Rg",
+			"type": "default"
+		}
+	]
+}

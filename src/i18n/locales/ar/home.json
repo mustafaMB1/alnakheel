@@ -1,0 +1,38 @@
+{
+    "Cooking-Line": "معدات الطهي",
+    "Cookers-Ovens-Fryers": "طباخات، أفران، مقالي..",
+    "Shop-Now" : "تسوق الآن",
+    "Cold-Line" : "معدات التبريد",
+    "Bakery-Equipment" : "معدات المخابز",
+    "Snacks-Equipment" : "معدات تحضير الوجبات الخفيفة",
+    "Our-Advantages" : "المزايا الخاصة بنا",
+    "Free-insallation" : "تركيب مجاني",
+    "Free-Delivery" : "توصيل مجاني",
+    "Best-Prices" : "اسعار منافسة",
+    "Kitchen-Design-Services" : "خدمة تصميم مطابخ",
+    "After-Sales-Services" : "خدمة بعد البيع",
+    "Express-Deleviry" : "توصيل سريع", 
+    "Great-Warranty" : "ضمان مميز",
+    "Customer-Service" : "خدمة عملاء",
+    "Popular-Categories" : "فئات رائجة",
+    "cooking equipment" : "معدات الطهي",
+    "refrigeration equipment" : "معدات التبريد",
+    "bakery equipment" : "معدات المخابز",
+    "Coffee and tea machines" : "ماكينات القهوة والشاي",
+    "juice making machines" : "ماكينات تحضير العصير",
+    "Food processors" : "محضرات الطعام",
+    "Food heating appliances" : "اجهزة تسخين الطعام",
+    "snack equipment" : "معدات الوجبات الخفيفة",
+    "Dishwashers" : "ماكينات غسيل الأطباق",
+      "contact": {
+        "emailTitle": "تواصل معنا عبر البريد الإلكتروني",
+        "emailDesc": "يمكنك مراسلتنا على البريد التالي، وسنرد عليك في أسرع وقت",
+        "whatsappTitle": "لم تجد ما يناسبك؟",
+        "whatsappDesc": "معنا حيث يمكننا مساعدتك لإيجاد ما تبحث عنه",
+        "whatsappBtn": "تواصل عبر واتساب",
+        "whatsappMessage": "مرحباً، أود الاستفسار عن خدماتكم."
+      }
+    
+    
+  }
+    
