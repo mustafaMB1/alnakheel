@@ -1,9 +1,10 @@
 // src/components/Products.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { baseUrl } from "../../../baseUrl";
+// import { baseUrl } from "../../../baseUrl";
 
 const categories = () => {
+  const baseUrl = import.meta.env.VITE_API_URL
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [err , setErr] = useState('')

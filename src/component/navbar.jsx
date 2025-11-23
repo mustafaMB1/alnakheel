@@ -5,11 +5,12 @@ import logo from "../assets/image/logo.png";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageDropdown from "./btnforlang";
-import {baseUrl} from '../../baseUrl'
+// import {baseUrl} from '../../baseUrl'
 import axios from "axios";
 import MegaMenu from "./megaMenu";
 import MegaMenuMob from "./megaMenuMob";
 export default function Navbar() {
+  const baseUrl = import.meta.env.VITE_API_URL
   const [mobileMenu, setMobileMenu] = useState(false);
   const [mainCat , setMainCat] = useState([])
   const { t , i18n } = useTranslation("common");

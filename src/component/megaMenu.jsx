@@ -2,9 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronLeft } from "lucide-react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import { baseUrl } from "../../baseUrl";
+// import { baseUrl } from "../../baseUrl";
 import ProductInMega from "./productInMega";
 export default function MegaMenu() {
+  const baseUrl = import.meta.env.VITE_API_URL
   const [openMenu, setOpenMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState([]);
   const menuRef = useRef(null);

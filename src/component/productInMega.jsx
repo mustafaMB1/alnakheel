@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { baseUrl } from '../../baseUrl'
+// import { baseUrl } from '../../baseUrl'
 import { useTranslation } from "react-i18next";
 import { Link } from 'react-router-dom';
 export default function ProductInMega({id}) {
+  const baseUrl = import.meta.env.VITE_API_URL
    const [products , setProducts] = useState([])
    const [loading , setLoading] = useState(false)
    const [err , setErr] = useState(null)
@@ -69,7 +70,7 @@ export default function ProductInMega({id}) {
          <div className='flex items-center gap-1'>
          <a
   href={`https://wa.me/+971557847654?text=${encodeURIComponent(
-    `مرحباً، أنا مهتم بهذا المنتج: ${i18n.language === 'en' ? pro.name_en : pro.name_ar}.\nرابط المنتج: ${window.location.origin}/product/${pro.id}`
+    `مرحباً، أنا مهتم بهذا المنتج: ${i18n.language === 'en' ? pro.name_en : pro.name_ar}.\nرابط المنتج: ${window.location.origin}/products/${pro.id}`
   )}`}
   target="_blank"  
   rel="noopener noreferrer"

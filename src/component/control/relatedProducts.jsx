@@ -1,9 +1,10 @@
 // src/components/RelatedProducts.jsx
 import React, { useState, useEffect } from "react";
-import { baseUrl } from "../../../baseUrl";
+// import { baseUrl } from "../../../baseUrl";
 import axios from "axios";
 
 const RelatedProducts = () => {
+  const baseUrl = import.meta.env.VITE_API_URL
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);

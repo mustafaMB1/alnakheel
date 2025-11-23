@@ -1,9 +1,9 @@
 import React , {useEffect, useState} from 'react'
 import imageCompression from "browser-image-compression";
-import { baseUrl } from '../../../baseUrl';
+// import { baseUrl } from '../../../baseUrl';
 import axios from 'axios';
 export default function EditBrand({id , style}) {
-
+   const baseUrl = import.meta.env.VITE_API_URL
     const [display , setDislay] = useState(style)
     const [file, setFile] = useState(null);
     const [nameAr , setameAr] = useState('')

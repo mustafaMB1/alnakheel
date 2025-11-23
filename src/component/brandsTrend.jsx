@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { baseUrl } from "../../baseUrl";
+// import { baseUrl } from "../../baseUrl";
 import { useTranslation } from "react-i18next";
 import { useInView } from "../useInView";
 import { Link } from "react-router-dom";
 
 export default function Brand() {
+  const baseUrl = import.meta.env.VITE_API_URL
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [err, setErr] = useState(null);

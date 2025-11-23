@@ -25,11 +25,11 @@
     "snack equipment" : "snack equipment",
     "Dishwashers" : "Dishwashers",
     "contact": {
-      "emailTitle": "Contact us via Email",
+      "emailTitle": "Contact by Email",
       "emailDesc": "You can reach us at the following email, and we will reply as soon as possible.",
       "whatsappTitle": "Didn't find what you are looking for?",
       "whatsappDesc": "We can help you find exactly what you need.",
-      "whatsappBtn": "Contact via WhatsApp",
+      "whatsappBtn": "Contact by WhatsApp",
       "whatsappMessage": "Hello, I would like to inquire about your services."
     }
   }

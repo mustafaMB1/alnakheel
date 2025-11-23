@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import { baseUrl } from "../../baseUrl";
+// import { baseUrl } from "../../baseUrl";
 
 // ✅ نمرر t إلى zod عشان الرسائل تطلع بالترجمة
 const useSchema = (t) =>
@@ -18,6 +18,7 @@ const useSchema = (t) =>
   });
 
 const Register = () => {
+  const baseUrl = import.meta.env.VITE_API_URL
   const { t } = useTranslation("register");
   const [loading, setLoading] = useState(false);
   const [serverMeesage , setServerMeesage] = useState('')

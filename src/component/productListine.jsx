@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { baseUrl } from "../../baseUrl";
+// import { baseUrl } from "../../baseUrl";
 import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 
 const ProductListing = () => {
+  const baseUrl = import.meta.env.VITE_API_URL
   const { i18n } = useTranslation("home");
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -352,14 +353,14 @@ const ProductListing = () => {
                           i18n.language === "en" ? p.name_en : p.name_ar
                         }.\nرابط المنتج: ${
                           window.location.origin
-                        }/product/${p.id}`
+                        }/products/${p.id}`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-green-600 px-2 py-1 text-white cursor-pointer rounded-md font-bold text-xs block text-center"
                     >
                       {i18n.language === "en"
-                        ? "Shop via WhatsApp"
+                        ? "Shop by WhatsApp"
                         : "تواصل عبر واتساب"}
                     </a>
                     <Link

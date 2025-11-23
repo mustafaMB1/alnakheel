@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import axios from "axios";
-import { baseUrl } from "../../baseUrl";
+// import { baseUrl } from "../../baseUrl";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom"; 
 
 export default function BrandSection({ image, title , id }) {
+  const baseUrl = import.meta.env.VITE_API_URL
   const { i18n } = useTranslation("home");
   const [current, setCurrent] = useState(0);
   const [loading , setLoading] = useState(false)

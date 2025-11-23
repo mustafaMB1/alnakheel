@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { baseUrl } from "../../baseUrl";
+// import { baseUrl } from "../../baseUrl";
 import { useTranslation } from "react-i18next";
 import { Eye } from "lucide-react";
 
 const ProductDetails = () => {
+  const baseUrl = import.meta.env.VITE_API_URL
   const { i18n } = useTranslation("home");
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -125,7 +126,7 @@ const ProductDetails = () => {
             href={`https://wa.me/+971557847654?text=${encodeURIComponent( 
               `مرحباً، أنا مهتم بهذا المنتج: ${
                 i18n.language === "en" ? product.name_en : product.name_ar
-              }.\nرابط المنتج: ${window.location.origin}/product/${product.id}`
+              }.\nرابط المنتج: ${window.location.origin}/products/${product.id}`
             )}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -169,7 +170,7 @@ const ProductDetails = () => {
                 href={`https://wa.me/+971557847654?text=${encodeURIComponent(
                   `مرحباً، أنا مهتم بهذا المنتج: ${
                     i18n.language === "en" ? item.name_en : item.name_ar
-                  }.\nرابط المنتج: ${window.location.origin}/product/${
+                  }.\nرابط المنتج: ${window.location.origin}/products/${
                     item.id
                   }`
                 )}`}

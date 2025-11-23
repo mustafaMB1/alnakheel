@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import axios from "axios";
-import { baseUrl } from "../../baseUrl";
+// import { baseUrl } from "../../baseUrl";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import img from '../assets/image/sale.png'
 export default function ProductsOffer() {
+  const baseUrl = import.meta.env.VITE_API_URL
   const { i18n } = useTranslation("home");
   const [current, setCurrent] = useState(0); 
   const [isPaused, setIsPaused] = useState(false);
@@ -143,7 +144,7 @@ const fetchProduct = async () => {
                           href={`https://wa.me/+971557847654?text=${encodeURIComponent(
                             `مرحباً، أنا مهتم بهذا المنتج: ${
                               i18n.language === "en" ? p.name_en : p.name_ar
-                            }.\nرابط المنتج: ${window.location.origin}/product/${p.id}`
+                            }.\nرابط المنتج: ${window.location.origin}/products/${p.id}`
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"

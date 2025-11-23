@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import {baseUrl} from '../../baseUrl'
+// import {baseUrl} from '../../baseUrl'
 // ✅ Zod Schema
 const schema = z.object({
   email: z.string().email("البريد الإلكتروني غير صحيح"),
@@ -12,6 +12,7 @@ const schema = z.object({
 });
 
 const Login = () => {
+  const baseUrl = import.meta.env.VITE_API_URL
   const { t } = useTranslation("login");
   const [loading, setLoading] = useState(false)
   const [serverMeesage , setServerMeesage] = useState('')

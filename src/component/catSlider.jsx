@@ -2,11 +2,12 @@ import { useRef, useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import { baseUrl } from "../../baseUrl";
+// import { baseUrl } from "../../baseUrl";
 import {useInView} from '../useInView'
 import { Link } from "react-router-dom";
 
 export default function CategoriesSlider() {
+  const baseUrl = import.meta.env.VITE_API_URL
   const { t, i18n } = useTranslation("home");
   const scrollRef = useRef(null);
   const [loading, setLoading] = useState(false);

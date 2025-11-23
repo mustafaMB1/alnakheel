@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { baseUrl } from '../../../baseUrl';
+// import { baseUrl } from '../../../baseUrl';
 export default function DeleteBrand({id , style}) {
+  const baseUrl = import.meta.env.VITE_API_URL
     const [display , setDisplay] = useState(style)
 
 
