@@ -326,51 +326,55 @@ const ProductListing = () => {
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {products.map((p) => (
-                <div
-                  key={p.id}
-                  className="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition"
-                >
-                  <img
-                    src={getImageSrc(p.image)}
-                    alt={i18n.language === "en" ? p.name_en : p.name_ar}
-                    className="w-full h-40 object-cover rounded-xl mb-2"
-                  />
-                  <h3 className="font-semibold text-sm mb-2 sm:text-base">
-                    {i18n.language === "en" ? p.name_en : p.name_ar}
-                  </h3>
-                  <p className="text-xs text-gray-600 mb-1">
-                    {i18n.language === "en"
-                      ? p.description_en
-                      : p.description_ar}
-                  </p>
-                  <p className="text-[var(--main-color)] font-bold mb-2">
-                    {p.price} <small>AED</small>
-                  </p>
-                  <div className="flex items-center gap-1.5">
-                    <a
-                      href={`https://wa.me/+963991519824?text=${encodeURIComponent(
-                        `مرحباً، أنا مهتم بهذا المنتج: ${
-                          i18n.language === "en" ? p.name_en : p.name_ar
-                        }.\nرابط المنتج: ${
-                          window.location.origin
-                        }/products/${p.id}`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-green-600 px-2 py-1 text-white cursor-pointer rounded-md font-bold text-xs block text-center"
-                    >
-                      {i18n.language === "en"
-                        ? "Shop by WhatsApp"
-                        : "تواصل عبر واتساب"}
-                    </a>
-                    <Link
-                      to={`/products/${p.id}`}
-                      className="bg-[var(--main-color)] px-2 py-1 text-white cursor-pointer rounded-md font-bold text-xs block text-center"
-                    >
-                      {i18n.language === "en" ? "Show more" : "عرض التفاصيل"}
-                    </Link>
-                  </div>
-                </div>
+          <div
+          key={p.id}
+          className="bg-white rounded-2xl shadow p-4 hover:shadow-lg transition
+                     flex flex-col h-[370px]"
+        >
+          <Link to={`/products/${p.id}`}>
+            <img
+              src={getImageSrc(p.image)}
+              alt={i18n.language === "en" ? p.name_en : p.name_ar}
+              className="w-auto mx-auto h-40 object-cover rounded-xl mb-2"
+            />
+          </Link>
+        
+          <h3 className="font-semibold text-sm mb-2 sm:text-base line-clamp-2">
+            {i18n.language === "en" ? p.name_en : p.name_ar}
+          </h3>
+        
+          <p className="text-xs text-gray-600 mb-1 line-clamp-2">
+            {i18n.language === "en" ? p.description_en : p.description_ar}
+          </p>
+        
+          <p className="text-[var(--main-color)] font-bold mb-2">
+            {p.price} <small>AED</small>
+          </p>
+        
+          {/* يجعل الأزرار بأسفل الكارد دائمًا */}
+          <div className="flex mt-auto items-center gap-1.5">
+            <a
+              href={`https://wa.me/+963991519824?text=${encodeURIComponent(
+                `مرحباً، أنا مهتم بهذا المنتج: ${
+                  i18n.language === "en" ? p.name_en : p.name_ar
+                }.\nرابط المنتج: ${window.location.origin}/products/${p.id}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-600 px-2 py-1 text-white cursor-pointer rounded-md font-bold text-xs block text-center"
+            >
+              {i18n.language === "en" ? "Shop by WhatsApp" : "تواصل عبر واتساب"}
+            </a>
+        
+            <Link
+              to={`/products/${p.id}`}
+              className="bg-[var(--main-color)] px-2 py-1 text-white cursor-pointer rounded-md font-bold text-xs block text-center"
+            >
+              {i18n.language === "en" ? "Show more" : "عرض التفاصيل"}
+            </Link>
+          </div>
+        </div>
+        
               ))}
             </div>
 

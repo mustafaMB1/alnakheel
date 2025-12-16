@@ -31,15 +31,15 @@ export default function Home() {
       <Advantages/> 
       <CategoriesSlider/>
       <ProductsOffer/>
-      <ProductsSlider image={foodeq} id={4} title={t("cooking equipment")}/>
+      <BrandSection image={foodeq} id={4} title={t("cooking equipment")}/>
       <BrandSection image={refrigerationequipment} id={3} title={t("refrigeration equipment")}/>
-      <ProductsSlider image={bakeryequipment} id={1} title={t("bakery equipment")}/>
+      <BrandSection image={bakeryequipment} id={1} title={t("bakery equipment")}/>
       <BrandSection image={Coffeeandteamachines} id={2} title={t("Coffee and tea machines")}/>
-      <ProductsSlider image={juicemakingmachines} id={9} title={t("juice making machines")}/>
+      <BrandSection image={juicemakingmachines} id={9} title={t("juice making machines")}/>
       <BrandSection image={Foodprocessors} id={7} title={t("Food processors")}/>
-      <ProductsSlider image={Foodheatingappliances} id={8} title={t("Food heating appliances")}/>
+      <BrandSection image={Foodheatingappliances} id={8} title={t("Food heating appliances")}/>
       <BrandSection image={snackequipment} id={11} title={t("snack equipment")}/>
-      <ProductsSlider image={Dishwashers} id={5} title={t("Dishwashers")}/>
+      <BrandSection image={Dishwashers} id={5} title={t("Dishwashers")}/>
       <Brand/>
       <ContactSection/>
     </div>

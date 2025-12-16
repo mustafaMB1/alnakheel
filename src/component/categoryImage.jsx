@@ -77,7 +77,7 @@ export default function CategoryShowcaseNew() {
               </div>
 
               {/* الوجه الخلفي */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-gradient-to-br from-red-700 to-black text-white shadow-xl [transform:rotateY(180deg)] [backface-visibility:hidden]">
+              <Link to={cat.href} className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-gradient-to-br from-red-700 to-black text-white shadow-xl [transform:rotateY(180deg)] [backface-visibility:hidden]">
                 <h2 className="text-xl font-semibold mb-4 cs-animate-fadeup">{cat.title}</h2>
                 <Link
                   to={cat.href}
@@ -85,7 +85,7 @@ export default function CategoryShowcaseNew() {
                 >
                   {t('Shop-Now')} →
                 </Link>
-              </div>
+              </Link>
             </div>
           </div>
         ))}

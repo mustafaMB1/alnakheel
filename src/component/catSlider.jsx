@@ -100,7 +100,7 @@ export default function CategoriesSlider() {
         {/* Left Arrow */}
         <button
           onClick={() => scroll("left")}
-          className="flex absolute left-2 z-10 bg-white shadow-md w-10 h-10 rounded-full items-center justify-center 
+          className="flex absolute left-2 z-[100] bg-white shadow-md w-10 h-10 rounded-full items-center justify-center 
           hover:bg-red-600 hover:text-white transition duration-300"
         >
           <FaChevronLeft />
@@ -149,7 +149,7 @@ export default function CategoriesSlider() {
         {/* Right Arrow */}
         <button
           onClick={() => scroll("right")}
-          className="flex absolute right-2 z-10 bg-white shadow-md w-10 h-10 rounded-full items-center justify-center 
+          className="flex absolute right-2 z-[100] bg-white shadow-md w-10 h-10 rounded-full items-center justify-center 
           hover:bg-red-600 hover:text-white transition duration-300"
         >
           <FaChevronRight />

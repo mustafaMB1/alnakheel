@@ -39,10 +39,10 @@ export default function SocialSidebar() {
       {/* زر الفتح والإغلاق مع pulse animation */}
       <button
   onClick={() => setOpen(!open)}
-  className="w-12 h-12 cursor-pointer rounded-full bg-[var(--main-color)] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 pulse-button"
+  className="w-12 h-12 cursor-pointer rounded-full bg-[var(--main-color)] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 "
 >
   {/* الطبقة الثالثة من الموجات */}
-  <span className="pulse-layer"></span>
+  {/* <span className="pulse-layer"></span> */}
 
   {open ? <FaTimes size={20} /> : <GrContact size={20} />}
 </button>

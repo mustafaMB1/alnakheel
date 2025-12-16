@@ -16,6 +16,7 @@ export default function ProductsOffer() {
   const [loading, setLoading] = useState(false);
   const [title , setTitle] = useState(i18n.language === 'en' ? 'our offer' : "عروضنا")
   const totalSlides = Math.ceil(products.length / itemsPerSlide);
+  const [activeProduct, setActiveProduct] = useState(null);
 
   // fetch products
   useEffect(() => {
@@ -115,7 +116,9 @@ const fetchProduct = async () => {
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{
-              transform: `translateX(${direction === "rtl" ? current * 100 : -current * 100}%)`,
+              transform: `translateX(${
+                direction === "rtl" ? current * 100 : -current * 100
+              }%)`,
             }}
           >
             {Array.from({ length: totalSlides }).map((_, slideIndex) => {
@@ -128,6 +131,11 @@ const fetchProduct = async () => {
                     <div
                       key={p.id}
                       className="relative group w-56 h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+                      onClick={() => {
+                        if (window.innerWidth < 768) {
+                          setActiveProduct(activeProduct === p.id ? null : p.id);
+                        }
+                      }}
                     >
                       <img
                         src={getImageSrc(p.image)}
@@ -135,9 +143,9 @@ const fetchProduct = async () => {
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                       />
 
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-[var(--main-color)]/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center px-4 text-white transform translate-y-6 group-hover:translate-y-0">
-                        <h3 className="text-lg text-center font-bold mb-2 animate-fadeIn">
+                      {/* DESKTOP HOVER OVERLAY */}
+                      <div className="hidden md:flex absolute inset-0 bg-[var(--main-color)]/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex-col justify-center px-4 text-white">
+                        <h3 className="text-lg text-center font-bold mb-2">
                           {i18n.language === "en" ? p.name_en : p.name_ar}
                         </h3>
                         <a
@@ -148,19 +156,52 @@ const fetchProduct = async () => {
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-white py-1 px-2 text-[var(--main-color)] cursor-pointer rounded-md font-bold block text-center hover:bg-gray-200 transition-colors"
+                          className="bg-white py-1 px-2 text-[var(--main-color)] rounded-md font-bold text-center hover:bg-gray-200"
                         >
                           {i18n.language === "en"
-                            ? "shop by whatsapp"
+                            ? "Shop by WhatsApp"
                             : "تواصل عبر واتساب"}
                         </a>
                         <Link
                           to={`/products/${p.id}`}
-                          className="block mx-auto bg-white text-[var(--main-color)] cursor-pointer mt-2 py-1 px-2 rounded-md text-center hover:bg-gray-200 transition-colors"
+                          className="bg-white text-[var(--main-color)] cursor-pointer mt-2 py-1 px-2 rounded-md text-center hover:bg-gray-200"
                         >
                           {i18n.language === "en" ? "Show more" : "عرض التفاصيل"}
                         </Link>
                       </div>
+
+                      {/* MOBILE CLICK OVERLAY */}
+                      {window.innerWidth < 768 && activeProduct === p.id && (
+                        <div className="absolute inset-0 bg-[var(--main-color)]/90 flex flex-col justify-center px-4 text-white transition-all duration-500">
+                          <h3 className="text-lg text-center font-bold mb-2">
+                            {i18n.language === "en" ? p.name_en : p.name_ar}
+                          </h3>
+
+                          <a
+                            href={`https://wa.me/+971557847654?text=${encodeURIComponent(
+                              `مرحباً، أنا مهتم بهذا المنتج: ${
+                                i18n.language === "en" ? p.name_en : p.name_ar
+                              }.\nرابط المنتج: ${window.location.origin}/products/${p.id}`
+                            )}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white py-1 px-2 text-[var(--main-color)] rounded-md font-bold text-center"
+                          >
+                            {i18n.language === "en"
+                              ? "Shop by WhatsApp"
+                              : "تواصل عبر واتساب"}
+                          </a>
+
+                          <Link
+                            to={`/products/${p.id}`}
+                            className="bg-white text-[var(--main-color)] cursor-pointer mt-2 py-1 px-2 rounded-md text-center"
+                          >
+                            {i18n.language === "en"
+                              ? "Show more"
+                              : "عرض التفاصيل"}
+                          </Link>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -170,16 +211,14 @@ const fetchProduct = async () => {
 
           {/* Navigation */}
           <button
-            onClick={() =>
-              setCurrent((prev) => (prev - 1 + totalSlides) % totalSlides)
-            }
-            className="absolute top-1/2 -translate-y-1/2 left-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 transition"
+            onClick={() => setCurrent((prev) => (prev - 1 + totalSlides) % totalSlides)}
+            className="absolute z-[100] top-1/2 -translate-y-1/2 left-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 transition"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => setCurrent((prev) => (prev + 1) % totalSlides)}
-            className="absolute top-1/2 -translate-y-1/2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 transition"
+            className="absolute z-[100] top-1/2 -translate-y-1/2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 transition"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
